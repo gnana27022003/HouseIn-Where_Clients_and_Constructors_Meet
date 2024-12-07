@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House In Constructions</title>
+    <style>
+        
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color:#F2F0EF;
+}
+       
+        .main-content {
+  padding-top: 90px; /* adjust the value to match the navbar height */
+}
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .section-heading {
+            text-align: center;
+            color:#351E10;
+            padding: 5px;
+            border-radius: 2px;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        .section-heading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-logo {
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+}
+
+        .plumber-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
+            max-width: 1300px;
+        }
+
+        .plumber-card img {
+            height: 150px;
+            width: 150px;
+            border-radius: 10%;
+        }
+
+        .plumber-details {
+            flex-grow: 1;
+        }
+
+        .plumber-details h2 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            color: #eb8b4e;
+        }
+
+        
+        .rating {
+            display: flex;
+            align-items: left;
+            justify-content: left;
+            margin: 10px 0;
+        }
+        .rating span {
+            font-size: 20px;
+            color: #f5b301;
+            margin-right: 10px;
+            
+        }
+         .rating p {
+            margin: 0;
+            color: #666;
+        }
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 16px;
+            color: #351E10;
+            margin-bottom: 15px;
+        }
+        .location img{
+            height: 20px;
+            width: 15px;
+            border-radius: 50%
+        }
+
+        .description {
+            font-size: 16px;
+            color: #351E10;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .buttons button {
+            background-color: #351E10;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons button:hover{
+            background-color: #eb8b4e;
+        }
+
+        .buttons .view-more {
+            background-color: #ccc;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    
+  <%- include('header') %>
+    
+    <div class="main-content">
+        <div class="section-heading">
+          <div class="section-heading-container">
+            <h2><%= serviceType.toUpperCase() %></h2>
+            <% let logoPath; %>
+            <% if (serviceType.toLowerCase() === 'painter') { %>
+                <% logoPath = '/painterlogo.png'; %>
+            <% }if (serviceType.toLowerCase() === 'plumber') { %>
+                <% logoPath = '/plumberlogo.png'; %>
+            <% } if (serviceType.toLowerCase() === 'electrician') { %>
+                <% logoPath = '/electrician.png'; %>
+            <% } if (serviceType.toLowerCase() === 'builder') { %>
+                <% logoPath = '/builder.png'; %>
+            <% } if (serviceType.toLowerCase() === 'masonry') { %>
+                <% logoPath = '/masonry.png'; %>
+            <% } if (serviceType.toLowerCase() === 'carpentry') { %>
+                <% logoPath = '/carpentry.png'; %>
+            <% } %>
+            <img src="<%= logoPath %>" alt="<%= serviceType %> Logo" class="section-logo">
+            
+          </div>
+        </div>
+    </div>
+    <% workers.forEach(worker => { %>
+    <div class="content">
+            
+        <div class="plumber-card">
+            <img src="<%= worker.profile_image.filename ? '/uploads/profile_image/' + worker.profile_image.filename : '' %>" alt="Worker <%= worker.name %>">
+            <div class="plumber-details">
+                <h2><%= worker.name %></h2>
+               
+                <div class="location">
+                    <img src="/marker.png" >
+                    <span><%= worker.location %></span>
+                </div>
+                <div class="description">
+                    <%= worker.description %>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="send-message" onclick="location.href='/sendemail'">Send Message</button>
+                <button class="view-more" onclick="location.href='/worker/<%= worker.uniqueId%>'">View More</button>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+    
+    <script>
+function toggleProfileDropdown() {
+  const profileDropdown = document.getElementById('profile-dropdown');
+  profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+
+    </script>
+
+</body>
+
+</html>

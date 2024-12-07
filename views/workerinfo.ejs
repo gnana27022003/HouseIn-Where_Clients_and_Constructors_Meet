@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)file:///C:/Users/Harin/OneDrive/Desktop/website/construcsignup.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Signup Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Change to match sign-in pages */
+            margin: 0;
+            padding: 20px;
+            background-color:#F2F0EF ;
+            /*
+
+            background: url('WhatsApp Image 2024-09-28 at 19.11.00_416ba86c.jpg') no-repeat center center fixed; */
+            background-size: cover; 
+        }
+
+        h1 {
+            text-align: center;
+            color: #351E10; 
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 32px; /* Adjust to match sign-in pages */
+        }
+
+        ::-webkit-input-placeholder {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #351E10;
+          }
+          form {
+            max-width: 800px;
+            padding: 40px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px #351E10; /* Box shadow is applied here */
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #351E10;
+            font-size: 18px; /* Match font size with sign-in pages */
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="file"],
+        select,
+        textarea {
+            font-size: 18px; /* Match font size */
+            padding: 15px;
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .profile-container {
+            color: #351E10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 150px; 
+            height: 150px; 
+            border-radius: 50%; 
+            background-color: #f0f0f0; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .upload-btn, .submit-btn {
+            margin-top: 10px; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            background-color: #eb8b4e; 
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Match with the select font family */
+            font-size: 18px;
+            cursor: pointer; 
+            /* Match button font size */
+        }
+        .upload-btn:hover,.submit-btn:hover
+        {
+            background-color: #351E10;
+        }
+
+        
+        .placeholder-icon {
+            width: 60%; 
+            height: 60%; 
+            opacity: 0.5; 
+        }
+        select {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/* Same font family as the rest of your form */
+            font-size: 18px; /* Same font size */
+            padding: 15px; /* Same padding for consistency */
+            width: 100%;
+            max-width: 700px;
+            color: #351E10;
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        /* Apply the same font family and size to option elements */
+        option {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #351E10; /* Match with the select font family */
+            font-size: 18px; /* Match with the select font size */
+        }
+        
+        .file-input-container{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Match with the select font family */
+            font-size: 18px;
+        }
+        .filename
+        {
+            color: #351E10;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Match with the select font family */
+            font-size: 18px;
+        }
+        .image-name {
+            margin-top: 10px; 
+            font-size: 16px; 
+            color: red; 
+            display: none; 
+        }
+
+        .error-message {
+            color: red; 
+            font-size: 14px; 
+            margin-top: -15px; 
+            margin-bottom: 20px; 
+        }
+
+        .submit-btn-container {
+            display: flex;
+            justify-content: center; 
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #eb8b4e; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover{
+            background-color: #351E10;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #351E10;
+            font-size: 16px; /* Consistent label font size */
+          }
+      
+          .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;  /* Thicker border for emphasis */
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #351E10;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition */
+          }
+      
+          /* Input field border color change on focus */
+          .input-group input:focus {
+            border-color: #351E10;  /* Accent color for focus */
+            box-shadow: 0 0 8px #351E10;  /* Subtle shadow effect */
+            outline: none;  /* Removes default outline */
+          }
+        .submit-btn:hover {
+            background-color: #351E10; 
+        }
+
+        #workers_count {
+            display: none;
+            color: #351E10;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                padding: 10px;
+            }
+
+            input[type="submit"] {
+                margin: 20px auto;
+                padding: 12px;
+            }
+        }
+
+        textarea {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px; 
+            padding: 15px;
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 25px;
+            color: #351E10;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tell us more about you</h1>
+   
+    <form action="/workerinfo" method="post" enctype="multipart/form-data" onsubmit="return handleSubmit()">
+
+        <div class="profile-container">
+            <div class="profile-photo" id="profilePhoto">
+                <img src="" alt="Profile Photo" id="image" style="display: none;">
+            </div>
+            <input type="file" id="profile_image" name="profile_image" accept="image/*" style="display: none;" onchange="previewImage(event)" required>
+            <button class="upload-btn" onclick="document.getElementById('profile_image').click();">Add Profile Photo</button>
+            <span class="image-name" id="imageName">No image uploaded</span>
+        </div>
+        
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name" pattern="[A-Za-z\s]+" title="Only alphabets and spaces are allowed." oninput="validateName()">
+        <div id="nameError" class="error-message"></div>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Enter your 10-digit phone number" maxlength="10" oninput="validatePhone()">
+        <div id="phoneError" class="error-message"></div>
+
+        <label for="pincode">Pincode:</label>
+        <input type="tel" id="pincode" name="pincode" required placeholder="Enter your 6-digit pincode" maxlength="6" oninput="validatePincode()">
+        <div id="pincodeError" class="error-message"></div>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required placeholder="Enter your location" oninput="autocompleteLocation(this.value)">
+        <div id="suggestions" class="autocomplete-suggestions"></div>
+
+        <label for="service_type">Choose your service type:</label>
+        <select id="service_type" name="service_type" onchange="togglePlumbingOptions()">
+            <option value="">--Select your field--</option>
+            <option value="builder">Builder</option>
+            <option value="masonry">Masonry</option>
+            <option value="plumber">Plumber</option>
+            <option value="electrician">Electrician</option>
+            <option value="painter">Painter</option>
+            <option value="carpentry">Carpentry</option>
+        </select>
+
+        <label for="cost">Expected Pricing Range:</label>
+        <input type="number" id="cost" name="cost" required placeholder="Ex: $50 per square foot area" title="Enter 0 , if the cost varies based on your construction preferences." oninput="validateCost()">
+        <div id="costError" class="error-message"></div>
+
+        <label for="experience">Years of experience:</label>
+        <input type="number" id="experience" name="experience" required min="0" max="99" placeholder="Enter your years of experience" oninput="validateYearsOfExperience()">
+        <div id="experienceError" class="error-message"></div> 
+
+        <label for="group_or_individual">Are you a group or individual:</label>
+        <select id="group_or_individual" name="group_or_individual" onchange="toggleWorkersField()" required>
+            <option value="">--Select--</option>
+            <option value="individual">Individual</option>
+            <option value="group">Group</option>
+        </select>
+
+        <div id="workers_count">
+            <label for="workers">How many workers under you:</label>
+            <input type="number" id="workers" name="workers" min="1" placeholder="Enter number of workers">
+        </div>
+
+        <label for="previous_work">Previous work photos:</label>
+        
+        <input type="file" id="previous_work" name="previous_work" accept="image/*" multiple required onchange="validateFileCount()">
+        <div id="fileError" class="error-message"></div>
+
+        <label for="working_hours">Working hours:</label>
+        <select id="working_hours" name="working_hours" required>
+            <option value="">--Select working hours--</option>
+            <option value="5">5 hours a day</option>
+            <option value="6">6 hours a day</option>
+            <option value="7">7 hours a day</option>
+            <option value="8">8 hours a day</option>
+            <option value="9">9 hours a day</option>
+            <option value="10">10 hours a day</option>
+        </select>
+
+        <label for="working_days">Working days:</label>
+        <select id="working_days" name="working_days" required="">
+            <option value="">--Select working days--</option>
+            <option value="7">7 days a week</option>
+            <option value="6">6 days a week</option>
+            <option value="5">5 days a week</option>
+            <option value="4">4 days a week</option>
+            <option value="based_on_work">Based on work</option>
+        </select>
+
+        <label for="tools_provided">Material Resources Offered:</label>
+        <select id="tools_provided" name="tools_provided" required="">
+            <option value="">--Select tools provision--</option>
+            <option value="completely_by_us">Completely by us</option>
+            <option value="some_by_us_some_by_you">Some by us, some by you</option>
+            <option value="totally_by_you">Totally by you</option>
+        </select>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" placeholder="Enter additional details or description here..." required=""></textarea>
+
+        <div class="submit-btn-container">
+            <button class="submit-btn" onclick="handleSubmit()">Register</button>
+        </div>
+        
+    </form>
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const imageName = document.getElementById('imageName');
+            const profilePhoto = document.getElementById('profilePhoto');
+            const image = document.getElementById('image');
+            const placeholder = document.getElementById('placeholder');
+        
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    image.src = e.target.result;
+                    image.style.display = 'block';
+                    placeholder.style.display = 'none';
+                    // Remove the following lines to hide the image name
+                    // imageName.textContent = file.name;
+                    imageName.style.display = 'none'; // Ensure the image name is hidden
+                }
+                reader.readAsDataURL(file);
+            } else {
+                image.src = '';
+                image.style.display = 'none';
+                placeholder.style.display = 'flex';
+                imageName.textContent = 'No image uploaded';
+                imageName.style.display = 'block';
+            }
+        }
+        
+
+        function handleSubmit() {
+            if (!profile_image.files.length) {
+                imageName.style.display = 'block'; // Show "No image uploaded" message
+                imageName.textContent = 'No image uploaded'; // Set the message
+            }
+            
+            // Add your form submission logic here
+            return true; // Return true to proceed with submission
+        }
+
+        function validateName() {
+            const nameInput = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            const isValid = /^[A-Za-z\s]+$/.test(nameInput.value);
+            nameError.textContent = isValid ? '' : 'Invalid name. Only letters and spaces are allowed.';
+        }
+
+        function validatePhone() {
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const isValid = /^\d{10}$/.test(phoneInput.value);
+            phoneError.textContent = isValid ? '' : 'Invalid phone number. Must be 10 digits.';
+        }
+
+        function validatePincode() {
+            const pincodeInput = document.getElementById('pincode');
+            const pincodeError = document.getElementById('pincodeError');
+            const isValid = /^\d{6}$/.test(pincodeInput.value);
+            pincodeError.textContent = isValid ? '' : 'Invalid pincode. Must be 6 digits.';
+        }
+
+        function validateCost() {
+            const costInput = document.getElementById('cost');
+            const costError = document.getElementById('costError');
+            const isValid = costInput.value !== '';
+            costError.textContent = isValid ? '' : 'Cost cannot be empty.';
+        }
+
+        function validateYearsOfExperience() {
+            const experienceInput = document.getElementById('experience');
+            const experienceError = document.getElementById('experienceError');
+            const isValid = experienceInput.value >= 0 && experienceInput.value <= 99;
+            experienceError.textContent = isValid ? '' : 'Please enter a valid number of years (0-99).';
+        }
+
+        function toggleWorkersField() {
+            const groupOrIndividual = document.getElementById('group_or_individual').value;
+            const workersCount = document.getElementById('workers_count');
+            workersCount.style.display = groupOrIndividual === 'group' ? 'block' : 'none';
+        }
+
+        function validateFileCount() {
+            const profile_image = document.getElementById('previous_work');
+            const fileError = document.getElementById('fileError');
+            fileError.textContent = profile_image.files.length > 0 ? '' : 'You must upload at least one photo.';
+        }
+
+        function autocompleteLocation(query) {
+            // Implement your autocomplete functionality here
+        }
+    </script>
+
+
+
+</body></html>
