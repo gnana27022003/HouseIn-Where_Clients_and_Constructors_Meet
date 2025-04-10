@@ -120,7 +120,7 @@ By incorporating the **Twilio API** with proxy phone numbers, this update ensure
 ![image](https://github.com/user-attachments/assets/eab90824-d9eb-427b-9d1e-75b1f1dc799b)
 ![image](https://github.com/user-attachments/assets/524f7af0-10de-4919-8849-802423f44e21)
 ![image](https://github.com/user-attachments/assets/2362805e-d46e-49aa-8760-9455b52a9884)
-![image](https://github.com/user-attachments/assets/61fde59d-c755-4fe4-81cb-9615b97343bd)
+
 
 
 
