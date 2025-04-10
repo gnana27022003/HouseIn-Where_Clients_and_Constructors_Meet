@@ -92,13 +92,6 @@ node app.js
 
 Your app should now be running at `http://localhost:3000`.
 
-## Contributors
-
-- [HariniBandari](https://github.com/HariniBandari)
-- [k-vaishnavi11](https://github.com/k-vaishnavi11)
-- [gnana2702003](https://github.com/gnana27022003)
-
-
 ### Steps to contribute:
 1. Fork the repository.
 2. Create a new branch for your feature (`git checkout -b feature-name`).
