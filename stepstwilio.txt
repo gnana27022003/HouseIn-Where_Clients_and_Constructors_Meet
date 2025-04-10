@@ -1,0 +1,39 @@
+TWILIO STEPS
+=================
+1.login to twilio using google
+2.go to your dashboard or console
+3.in console u scroll down to get twilio number,acc sid,API key
+4.under left panel of account dashboard 
+>phone numbers>manage>active numbers
+5.in active numbers u find the twilio number and at that 
+click on trial twilio number>directed to twilio number configuration
+6.in that configure a call comes in >>webhook  >>URL>type ngrok url/connet-client  >>HTTP>post
+7.click on configure by scrolling down
+
+
+NGROK STEPS
+=================
+1.ngrok website>login>>use authenticator to login whenever u need
+2.download ngrok > windows 64-bit >
+3.copy command in to authentication and paste it in ngrok exe (i.e. whenever u download ngrok exe click on it it opens powershell inthat u type the commands given)
+4.copy command to run
+>ngrok http 3000
+
+
+NOTE:
+=========
+1.ALWAYS USE PORT=3000 ==>WHEN USING SOCKET.IO API
+2.ALWAYS LISTEN SERVER ON server.LISTEN(.......) WHERE const server = http.createServer(app);
+3.USE app.use(express.static("public"));==>TO LOAD SOCKET.IO IN FRONTEND SIDE
+
+
+NOTE2:
+=========
+1.ALWAYS FIRST RUN NGROK CMDS AND THEN GO PASTE THE NGROK URL(UNDER FORWARDING) PASTE THAT IN APP.JS UNDER  
+client.calls.create({
+            url: `................./CONNECT-CLIENT`...
+2.THEN PASTE THE SAME UNDER CONFIGURE TAB AS I MENTIONED ABOVE (THIS ENTIRE URL:-->................./CONNECT-CLIENT)
+
+NOTE3:
+===========
+ALWAYS USE PORT 3000 IF YOU ARE DEALING WITH SOCKET.IO PROGRAMS I.E. THIS PACKAGE IS RUN DEFALUTY ON THAT PORT SO USE THAT ONLY WHEN U DEAL WITH SOCKET.IO PACKAGE
